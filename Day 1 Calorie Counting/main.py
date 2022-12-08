@@ -36,17 +36,16 @@ def find_3_most_calories(t):
 
     f.close()
     sum = 0
-    print(three_highest_cals)
     for ii in three_highest_cals:
         sum += ii
     return sum
 
 
 def main():
-    x = find_most_calories("input.txt")
+    x = find_most_calories("Day 1 Calorie Counting\input.txt")
     print(x)
 
-    x = find_3_most_calories("input.txt")
+    x = find_3_most_calories("Day 1 Calorie Counting\input.txt")
     print(x)
 
 
