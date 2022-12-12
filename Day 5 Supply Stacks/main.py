@@ -1,9 +1,10 @@
 import re
 from typing import List
 
-def parse_stack_input(lines : List[str]) -> List[list]:
+
+def parse_stack_input(lines: List[str]) -> List[list]:
     at_move_input = False
-    num_of_stacks = int(len(lines[0])/4)
+    num_of_stacks = int(len(lines[0]) / 4)
     stacks = list()
     for ii in range(num_of_stacks):
         stacks.append(list())
@@ -17,18 +18,18 @@ def parse_stack_input(lines : List[str]) -> List[list]:
             at_move_input = True
         else:
             for ii in range(num_of_stacks):
-                char = line[4*ii + 1]
-                if char != ' ':
+                char = line[4 * ii + 1]
+                if char != " ":
                     stacks[ii].append(char)
     raise AssertionError("Should have returned before ending for loop")
 
 
-def parse_move_input(lines : List[str]) -> List[list]:
+def parse_move_input(lines: List[str]) -> List[list]:
     moves = list()
     at_move_input = False
     for line in lines:
         if at_move_input:
-            move = [eval(i) for i in re.findall('[0-9]+', line)]
+            move = [eval(i) for i in re.findall("[0-9]+", line)]
             move[1] -= 1
             move[2] -= 1
             moves.append(move)
@@ -38,17 +39,23 @@ def parse_move_input(lines : List[str]) -> List[list]:
     return moves
 
 
-def process_move_n_from_a_to_b_9000(stacks : List[list], n : int, a : int, b : int) -> None:
+def process_move_n_from_a_to_b_9000(
+    stacks: List[list], n: int, a: int, b: int
+) -> None:
     for ii in range(n):
         stacks[b].append(stacks[a].pop())
 
-def process_move_n_from_a_to_b_9001(stacks : List[list], n : int, a : int, b : int) -> None:
+
+def process_move_n_from_a_to_b_9001(
+    stacks: List[list], n: int, a: int, b: int
+) -> None:
     stack_to_move = []
     for ii in range(n):
         stack_to_move.insert(0, stacks[a].pop())
     stacks[b] += stack_to_move
 
-def crates_on_top_of_stacks(t : str, crane_type : int) -> str:
+
+def crates_on_top_of_stacks(t: str, crane_type: int) -> str:
     f = open(t)
     lines = f.readlines()
     stacks = parse_stack_input(lines)
@@ -63,12 +70,11 @@ def crates_on_top_of_stacks(t : str, crane_type : int) -> str:
         else:
             raise AssertionError("Unknown crane type")
 
-    crates_on_top = ''
+    crates_on_top = ""
     for stack in stacks:
-        crates_on_top += (stack[len(stack)-1])
+        crates_on_top += stack[len(stack) - 1]
 
     return crates_on_top
-
 
 
 def main():
