@@ -57,7 +57,9 @@ def main():
     x = calculate_priority_sum("Day 3 Rucksack Reorganization\input.txt")
     print(x)
 
-    x = calculate__badge_priority_sum("Day 3 Rucksack Reorganization\\input.txt")
+    x = calculate__badge_priority_sum(
+        "Day 3 Rucksack Reorganization\\input.txt"
+    )
     print(x)
 
 
