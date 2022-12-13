@@ -1,14 +1,17 @@
 import file
 from typing import List
 
+
 class directory:
-    def __init__(self, name, parent, dirlist : list, filelist : List[file.file]) -> None:
+    def __init__(
+        self, name, parent, dirlist: list, filelist: List[file.file]
+    ) -> None:
         self.name = name
         self.parent = parent
         self.dirlist = dirlist
         self.filelist = filelist
 
-    def set_name(self, name : str):
+    def set_name(self, name: str):
         self.name = name
 
     def set_parent(self, parent):
@@ -20,10 +23,10 @@ class directory:
     def rm_dir(self, dir):
         self.dirlist.remove(dir)
 
-    def add_file(self, file : file):
+    def add_file(self, file: file):
         self.filelist.append(file)
 
-    def rm_file(self, file : file):
+    def rm_file(self, file: file):
         self.filelist.remove(file)
 
     def get_size(self) -> int:
